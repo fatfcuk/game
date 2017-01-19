@@ -38,4 +38,19 @@ public class Sprite {
 
     }
 
+    public float getSx() {
+        return sx;
+    }
+
+    public void setSx(float sx) {
+        this.sx = sx;
+    }
+
+    public float getSy() {
+        return sy;
+    }
+
+    public void setSy(float sy) {
+        this.sy = sy;
+    }
 }

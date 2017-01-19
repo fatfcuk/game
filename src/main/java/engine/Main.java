@@ -1,5 +1,6 @@
 package engine;
 
+import game.Game;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
@@ -17,6 +18,7 @@ public class Main {
 
     public static void main(String args[]) {
 
+
         initDisplay();
         initGl();
         initGame();
@@ -30,7 +32,7 @@ public class Main {
 
 
         try {
-            Display.setDisplayMode(new DisplayMode(1280 , 720));
+            Display.setDisplayMode(new DisplayMode(800 , 600));
             Display.create();
             Display.setVSyncEnabled(true);
             Keyboard.create();
@@ -100,4 +102,5 @@ public class Main {
         Display.sync(100);
 
     }
+
 }

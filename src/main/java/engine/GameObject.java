@@ -1,28 +1,31 @@
 package engine;
 
+import static org.lwjgl.opengl.GL11.*;
+
 /**
  * Created by fatfcuk on 17.01.17.
  */
 public abstract class GameObject {
 
     //POSITION
-    private float x;
-    private float y;
+    protected float x;
+    protected float y;
+
+    protected Sprite sprite;
 
 
 
- //   private Animation animation;
+    public void update() {
 
-    public void update(){
-
-        
 
     }
 
-    public void render(){
+    public void render() {
 
-
-
+        glPushMatrix();
+        glTranslatef(x, y, 0);
+        sprite.render();
+        glPopMatrix();
     }
 
     public float getX() {
@@ -41,5 +44,28 @@ public abstract class GameObject {
         this.y = y;
     }
 
+    public float getSx(){
+        return sprite.getSx();
+    }
+    public float getSy(){
+        return sprite.getSy();
+    }
 
+    public Sprite getSprite() {
+        return sprite;
+    }
+
+    public void setSprite(Sprite sprite) {
+        this.sprite = sprite;
+    }
+
+    protected void init(float x, float y, float r, float g, float b, float sx, float sy){
+
+        this.x = x;
+        this.y = y;
+        this.sprite = new Sprite(r,g,b,sx,sy);
+
+
+
+    }
 }
