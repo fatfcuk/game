@@ -2,6 +2,7 @@ package game;
 
 import engine.GameObject;
 import gameobject.Player;
+import gameobject.Wall;
 import org.lwjgl.opengl.Display;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ public class Game {
     private ArrayList<GameObject> gameObjects;
 
     private Player player;
+    private Wall wall;
 
 
     public Game() {
@@ -22,10 +24,11 @@ public class Game {
         gameObjects = new ArrayList<GameObject>();
 
         player = new Player(Display.getWidth() / 2 - Player.SIZE / 2, Display.getHeight() / 2 - Player.SIZE / 2);
-
+        wall = new Wall(30,30,15,213,22,50,100);
 
 
         gameObjects.add(player);
+        gameObjects.add(wall);
 
     }
 

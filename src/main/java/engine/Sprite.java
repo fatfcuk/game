@@ -27,6 +27,7 @@ public class Sprite {
 
             glBegin(GL_QUADS);
 
+                
                 glVertex2f(0,0);
                 glVertex2f(0,sy);
                 glVertex2f(sx,sy);

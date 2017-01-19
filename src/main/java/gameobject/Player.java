@@ -93,6 +93,8 @@ public class Player extends GameObject {
         glTranslatef(-x, -y, 0);
     }
 
+
+
 }
 
 
