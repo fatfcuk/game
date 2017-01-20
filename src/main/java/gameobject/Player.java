@@ -23,7 +23,7 @@ public class Player extends GameObject {
 
     public Player(float x, float y) {
 
-        init(x, y, 0.5f, 0.1f, 0.9f, SIZE, SIZE);
+        init(x, y,  SIZE, SIZE,"jpg","resources/images/kitty.jpg");
 
 
     }

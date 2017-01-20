@@ -59,11 +59,11 @@ public abstract class GameObject {
         this.sprite = sprite;
     }
 
-    protected void init(float x, float y, float r, float g, float b, float sx, float sy){
+    protected void init(float x,float y,float sx, float sy,String extension, String path){
 
         this.x = x;
         this.y = y;
-        this.sprite = new Sprite(r,g,b,sx,sy);
+        this.sprite = new Sprite(sx,sy,extension,path);
 
 
 

@@ -32,7 +32,7 @@ public class Main {
 
 
         try {
-            Display.setDisplayMode(new DisplayMode(800 , 600));
+            Display.setDisplayMode(new DisplayMode(1600 , 900));
             Display.create();
             Display.setVSyncEnabled(true);
             Keyboard.create();
@@ -47,6 +47,7 @@ public class Main {
         glLoadIdentity();
         glOrtho(0, Display.getWidth(), 0, Display.getHeight(), -1, 1);
         glMatrixMode(GL_MODELVIEW);
+        glEnable(GL_TEXTURE_2D);
         glDisable(GL_DEPTH_TEST);
 
         glClearColor(0, 0, 0, 0);
