@@ -16,6 +16,12 @@ public class Main {
     private static Game game;
 
 
+    private static enum  State{
+
+        MAINMENU,SINGLEPLAYER,MULTIPLAYER,OPTIONS,EXIT;
+
+    }
+
     public static void main(String args[]) {
 
 
@@ -28,11 +34,13 @@ public class Main {
         cleanUp();
     }
 
+
     private static void initDisplay() {
 
 
         try {
-            Display.setDisplayMode(new DisplayMode(1600 , 900));
+            Display.setDisplayMode(new DisplayMode(1600,900));
+
             Display.create();
             Display.setVSyncEnabled(true);
             Keyboard.create();

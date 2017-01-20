@@ -1,0 +1,12 @@
+1)Create working Animation class
+2)Equipment gui
+3)Player extensions : experience, attack, block, mlvl, magic atack
+4)Player attacks -> animated atack
+5)Networking
+6)Generate leve
+7)WYSIWYG level creator.
+8)States:
+**Single player
+**Multi player
+***Options
+****Exit

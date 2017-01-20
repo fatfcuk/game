@@ -7,9 +7,6 @@ import org.newdawn.slick.util.ResourceLoader;
 
 import static org.lwjgl.opengl.GL11.*;
 
-/**
- * Created by fatfcuk on 17.01.17.
- */
 public class Sprite {
 
     private Texture texture;
@@ -20,6 +17,14 @@ public class Sprite {
     private String extension;
     private String path;
 
+
+    /**
+     *
+     * @param sx
+     * @param sy
+     * @param extension
+     * @param path
+     */
     public Sprite(float sx, float sy, String extension, String path) {
 
         this.sx = sx;

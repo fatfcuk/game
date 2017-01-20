@@ -2,6 +2,7 @@ package gameobject;
 
 import engine.GameObject;
 import engine.Sprite;
+import game.Game;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
 
@@ -45,10 +46,11 @@ public class Player extends GameObject {
         }
         if(Keyboard.isKeyDown(Keyboard.KEY_SPACE)){
 
-            jump();
-
-
+                Keyboard.destroy();
+                Display.destroy();
+                System.exit(1);
         }
+
 
 
     }
@@ -61,13 +63,6 @@ public class Player extends GameObject {
 
     }
 
-    private void jump(){
-
-
-
-
-
-    }
 
     private float getSpeed() {
 
