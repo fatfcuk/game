@@ -60,6 +60,7 @@ public class Sprite {
         glEnd();
 
 
+
     }
 
     public float getSx() {
@@ -82,5 +83,12 @@ public class Sprite {
 
         texture = TextureLoader.getTexture(extension, ResourceLoader.getResourceAsStream(path));
 
+    }
+
+    public float getTextureWidth(){
+        return texture.getTextureWidth();
+    }
+    public float getTextureHeight(){
+        return texture.getTextureHeight();
     }
 }

@@ -24,7 +24,7 @@ public class Game {
         gameObjects = new ArrayList<GameObject>();
 
         player = new Player(Display.getWidth() / 2 - Player.SIZE / 2, Display.getHeight() / 2 - Player.SIZE / 2);
-        floor = new Flor(32,32);
+        floor = new Flor(100,300);
 
         gameObjects.add(player);
         gameObjects.add(floor);

@@ -7,10 +7,9 @@ import java.io.InputStream;
 import java.awt.Font;
 
 /**
- * Created by ja on 22.01.2017.
+ * Created by Jędrzej "fatfcuk" Sieja on 22.01.2017.
  */
 public class FontLoader {
-
 
     public FontLoader() {
 
@@ -18,13 +17,11 @@ public class FontLoader {
 
     public static TrueTypeFont loadFontFromFile(String path, float size, boolean antiAlias) throws Exception {
 
-
         InputStream inputStream = ResourceLoader.getResourceAsStream(path);
         Font awtFont = Font.createFont(Font.TRUETYPE_FONT, inputStream);
         awtFont = awtFont.deriveFont(size);
 
-
-        return new TrueTypeFont(awtFont,antiAlias);
-
+        System.out.println("Loaded font: "+path);
+        return new TrueTypeFont(awtFont, antiAlias);
     }
 }

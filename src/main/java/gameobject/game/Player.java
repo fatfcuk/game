@@ -2,10 +2,15 @@ package gameobject.game;
 
 import engine.GameObject;
 import engine.Main;
+import org.lwjgl.BufferUtils;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
 
 
+import java.nio.IntBuffer;
+
+import static org.lwjgl.opengl.GL11.GL_MAX_LIGHTS;
+import static org.lwjgl.opengl.GL11.glGetInteger;
 import static org.lwjgl.opengl.GL11.glTranslatef;
 
 /**
@@ -26,9 +31,8 @@ public class Player extends GameObject {
          */
         init(x, y, SIZE, SIZE, "png", "resources/images/bahamut.png");
 
-        /**
-         * GUI IMAGES, STILL WONDERING HOW TO DO GUI
-         */
+
+
 
 
     }
@@ -101,9 +105,12 @@ public class Player extends GameObject {
     public void render() {
 
 
-        glTranslatef(Display.getWidth() / 2 - Player.SIZE / 2, Display.getHeight() / 2 - Player.SIZE / 2, 0);
+
+
+        glTranslatef(Display.getWidth() / 2 - (sprite.getTextureWidth() )/ 2, Display.getHeight() / 2 - (sprite.getTextureHeight()) / 2, 0);
         sprite.render();
-        glTranslatef(-x, -y, 0);
+        glTranslatef(-x, y, 0);
+        System.out.println(sprite.getTextureWidth()+" : "+sprite.getTextureHeight());
 
     }
 

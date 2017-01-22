@@ -16,6 +16,9 @@ import static org.lwjgl.opengl.GL11.*;
  */
 public class Main {
 
+    private static final int WIDTH = 1600;
+    private static final int HEIGHT = 900;
+
     public enum State {
         MAINMENU, GAME, OPTIONS,ABOUT
     }
@@ -53,7 +56,7 @@ public class Main {
 
         try {
 
-            Display.setDisplayMode(new DisplayMode(1960, 1080));
+            Display.setDisplayMode(Display.getDesktopDisplayMode());
             Display.setFullscreen(true);
 
             Display.create();
@@ -75,7 +78,7 @@ public class Main {
 
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
-        glOrtho(0, Display.getWidth(), 0, Display.getHeight(), -1, 1);
+        glOrtho(0, Display.getWidth(), Display.getHeight(),0,  1, -1);
         glMatrixMode(GL_MODELVIEW);
 
 
