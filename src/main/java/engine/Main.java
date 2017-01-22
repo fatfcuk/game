@@ -15,12 +15,7 @@ public class Main {
 
     private static Game game;
 
-
-    private static enum  State{
-
-        MAINMENU,SINGLEPLAYER,MULTIPLAYER,OPTIONS,EXIT;
-
-    }
+    private static DisplayMode[] displayModes;
 
     public static void main(String args[]) {
 
@@ -39,7 +34,9 @@ public class Main {
 
 
         try {
-            Display.setDisplayMode(new DisplayMode(1600,900));
+
+            Display.setDisplayMode(new DisplayMode(1960,1080));
+            Display.setFullscreen(true);
 
             Display.create();
             Display.setVSyncEnabled(true);
@@ -51,28 +48,33 @@ public class Main {
 
     private static void initGl() {
 
+        glEnable(GL_TEXTURE_2D);
+        glDisable(GL_DEPTH_TEST);
+        glClearColor(0, 0, 0, 0);
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
+        glMatrixMode(GL_MODELVIEW);
+
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
         glOrtho(0, Display.getWidth(), 0, Display.getHeight(), -1, 1);
         glMatrixMode(GL_MODELVIEW);
-        glEnable(GL_TEXTURE_2D);
-        glDisable(GL_DEPTH_TEST);
 
-        glClearColor(0, 0, 0, 0);
+
 
 
     }
 
-    private static void initGame(){
+    private static void initGame() {
 
-     game = new Game();
+        game = new Game();
 
 
     }
 
     private static void gameLoop() {
 
-        while(!Display.isCloseRequested()){
+        while (!Display.isCloseRequested()) {
 
             getInput();
             update();
@@ -83,24 +85,25 @@ public class Main {
 
     }
 
-    private static void cleanUp(){
+    private static void cleanUp() {
 
         Display.destroy();
         Keyboard.destroy();
     }
 
-    private static void getInput(){
+    private static void getInput() {
 
         game.getInput();
 
     }
-    private static void update(){
+
+    private static void update() {
 
         game.update();
 
     }
 
-    private static void render(){
+    private static void render() {
 
         glClear(GL_COLOR_BUFFER_BIT);
         glLoadIdentity();

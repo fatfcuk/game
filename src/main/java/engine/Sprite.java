@@ -50,13 +50,13 @@ public class Sprite {
         glTexCoord2f(0, 0);
         glVertex2f(0, 0);
         glTexCoord2f(0, 1);
-        glVertex2f(0, texture.getTextureHeight()*2);
+        glVertex2f(0, texture.getTextureHeight());
         glTexCoord2f(1, 1);
-        glVertex2f(texture.getTextureWidth()*2, texture.getTextureHeight()*2);
+        glVertex2f(texture.getTextureWidth(), texture.getTextureHeight());
         glTexCoord2f(1, 0);
-        glVertex2f(texture.getTextureWidth()*2, 0);
+        glVertex2f(texture.getTextureWidth(), 0);
 
-
+            texture.release();
         glEnd();
 
 
@@ -81,7 +81,6 @@ public class Sprite {
     public void initTexture() throws Exception {
 
         texture = TextureLoader.getTexture(extension, ResourceLoader.getResourceAsStream(path));
-
 
     }
 }

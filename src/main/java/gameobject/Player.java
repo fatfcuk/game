@@ -10,6 +10,7 @@ import org.lwjgl.opengl.Display;
 import static org.lwjgl.opengl.GL11.glPopMatrix;
 import static org.lwjgl.opengl.GL11.glPushMatrix;
 import static org.lwjgl.opengl.GL11.glTranslatef;
+import static org.lwjgl.opengl.GL11.*;
 
 /**
  * Created by fatfcuk on 17.01.17.
@@ -24,7 +25,7 @@ public class Player extends GameObject {
 
     public Player(float x, float y) {
 
-        init(x, y,  SIZE, SIZE,"jpg","resources/images/kitty.jpg");
+        init(x, y,  SIZE, SIZE,"png","resources/images/kitty.png");
 
 
     }
@@ -83,9 +84,11 @@ public class Player extends GameObject {
     @Override
     public void render() {
 
+
         glTranslatef(Display.getWidth()/2-Player.SIZE/2,Display.getHeight()/2-Player.SIZE/2,0);
         sprite.render();
         glTranslatef(-x, -y, 0);
+
     }
 
 
