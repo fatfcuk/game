@@ -1,6 +1,9 @@
 package engine;
 
+import game.About;
 import game.Game;
+import game.MainMenu;
+import game.Options;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
@@ -13,19 +16,34 @@ import static org.lwjgl.opengl.GL11.*;
  */
 public class Main {
 
-    private static Game game;
+    public enum State {
+        MAINMENU, GAME, OPTIONS,ABOUT
+    }
 
-    private static DisplayMode[] displayModes;
+    public static State gameState = State.MAINMENU;
+
+
+    /**
+     * STATES
+     */
+    private static Game game;
+    private static MainMenu mainMenu;
+    private static Options options;
+    private static About about;
+
 
     public static void main(String args[]) {
 
 
         initDisplay();
         initGl();
-        initGame();
+
+        /**
+         * INITIALIZING STATES
+         */
+        initStates();
 
         gameLoop();
-
         cleanUp();
     }
 
@@ -35,7 +53,7 @@ public class Main {
 
         try {
 
-            Display.setDisplayMode(new DisplayMode(1960,1080));
+            Display.setDisplayMode(new DisplayMode(1960, 1080));
             Display.setFullscreen(true);
 
             Display.create();
@@ -52,7 +70,7 @@ public class Main {
         glDisable(GL_DEPTH_TEST);
         glClearColor(0, 0, 0, 0);
         glEnable(GL_BLEND);
-        glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
         glMatrixMode(GL_MODELVIEW);
 
         glMatrixMode(GL_PROJECTION);
@@ -61,16 +79,8 @@ public class Main {
         glMatrixMode(GL_MODELVIEW);
 
 
-
-
     }
 
-    private static void initGame() {
-
-        game = new Game();
-
-
-    }
 
     private static void gameLoop() {
 
@@ -93,13 +103,45 @@ public class Main {
 
     private static void getInput() {
 
-        game.getInput();
+        switch (gameState) {
+            case MAINMENU:
+                mainMenu.getInput();
+                break;
+            case OPTIONS:
+                options.getInput();
+                break;
+            case GAME:
+                game.getInput();
+                break;
+            case ABOUT:
+                about.getInput();
+                break;
+            default:
+                break;
+        }
+
 
     }
 
     private static void update() {
 
-        game.update();
+        switch (gameState) {
+            case MAINMENU:
+                mainMenu.update();
+                break;
+            case OPTIONS:
+                options.update();
+                break;
+            case GAME:
+                game.update();
+                break;
+            case ABOUT:
+                about.update();
+                break;
+            default:
+                break;
+        }
+
 
     }
 
@@ -108,10 +150,57 @@ public class Main {
         glClear(GL_COLOR_BUFFER_BIT);
         glLoadIdentity();
 
-        game.render();
+        switch (gameState) {
+            case MAINMENU:
+                mainMenu.render();
+                break;
+            case OPTIONS:
+                options.render();
+                break;
+            case GAME:
+                game.render();
+                break;
+            case ABOUT:
+                about.render();
+                break;
+            default:
+                break;
+        }
 
         Display.update();
-        Display.sync(100);
+        Display.sync(60);
+
+    }
+
+    private static void initGame() {
+
+        game = new Game();
+
+
+    }
+
+    private static void initMainMenu() {
+
+        mainMenu = new MainMenu();
+    }
+
+    private static void initOptions() {
+
+
+        options = new Options();
+    }
+
+    private static void initAbout(){
+
+        about = new About();
+    }
+
+    private static void initStates() {
+
+        initMainMenu();
+        initGame();
+        initOptions();
+        initAbout();
 
     }
 

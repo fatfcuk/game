@@ -1,8 +1,8 @@
 package game;
 
 import engine.GameObject;
-import gameobject.Flor;
-import gameobject.Player;
+import gameobject.game.Flor;
+import gameobject.game.Player;
 import org.lwjgl.opengl.Display;
 
 import java.util.ArrayList;
