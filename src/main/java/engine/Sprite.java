@@ -31,17 +31,17 @@ public class Sprite {
         this.sy = sy;
         this.extension = extension;
         this.path = path;
+
+        try{
+            initTexture();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
 
     public void render() {
 
-        try {
-            initTexture();
-
-        } catch (Exception e) {
-            System.out.println(e.toString());
-        }
         Color.white.bind();
         texture.bind();
         glBegin(GL_QUADS);
@@ -49,12 +49,12 @@ public class Sprite {
 
         glTexCoord2f(0, 0);
         glVertex2f(0, 0);
-        glTexCoord2f(0, 1);
-        glVertex2f(0, texture.getTextureHeight());
-        glTexCoord2f(1, 1);
-        glVertex2f(texture.getTextureWidth(), texture.getTextureHeight());
         glTexCoord2f(1, 0);
         glVertex2f(texture.getTextureWidth(), 0);
+        glTexCoord2f(1, 1);
+        glVertex2f(texture.getTextureWidth(), texture.getTextureHeight());
+        glTexCoord2f(0, 1);
+        glVertex2f(0, texture.getTextureHeight());
 
             texture.release();
         glEnd();
